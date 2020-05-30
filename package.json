@@ -1,26 +1,28 @@
 {
-  "name": "electron-application",
-  "version": "0.1.0",
-  "description": "javascript, html and css",
-  "main": "app/js/main.js",
-  "devDependencies": {
-    "electron": "^7.1.7",
-    "electron-packager": "^14.1.1"
-  },
-  "scripts": {
-    "start": "electron .",
-    "package": "electron-packager . Berufsinformation --overwrite --platform=win32 --arch=x64 --out=dist --electron-version=7.1.7 --icon=icon.ico"
-  },
-  "build": {
-    "win": {
-      "target": "NSIS"
+    "name": "electron-application",
+    "version": "0.1.0",
+    "description": "javascript, html and css",
+    "main": "app/js/main.js",
+    "scripts": {
+        "start": "electron .",
+        "package": "electron-packager . Berufsinformation --overwrite --platform=win32 --arch=x64 --out=dist --electron-version=7.1.7 --icon=icon.ico",
+        "build": "electron-builder"
+    },
+    "build": {
+        "win": {
+            "target": "NSIS"
+        }
+    },
+    "keywords": [],
+    "author": "David-Kopczynski",
+    "license": "GPL-3.0-or-later",
+    "dependencies": {
+        "jquery": "^3.4.1",
+        "node-xlsx": "^0.15.0"
+    },
+    "devDependencies": {
+        "electron": "^7.1.7",
+        "electron-builder": "^22.7.0",
+        "electron-packager": "^14.1.1"
     }
-  },
-  "keywords": [],
-  "author": "David-Kopczynski",
-  "license": "GPL-3.0-or-later",
-  "dependencies": {
-    "jquery": "^3.4.1",
-    "node-xlsx": "^0.15.0"
-  }
 }
