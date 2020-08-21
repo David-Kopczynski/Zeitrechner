@@ -18,8 +18,11 @@ app.on("ready", function (event) {
         },
         fullscreen: false,
         // Windows frame managment
-        frame: true,
-        backgroundColor: "#FFF"
+        frame: false,
+        backgroundColor: "#FFF",
+        resizable: false,
+        width: 550,
+        height: 278
     });
 	mainWindow.loadFile(path.join('app/index.html'));
 });

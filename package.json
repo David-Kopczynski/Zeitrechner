@@ -1,11 +1,11 @@
 {
-    "name": "electron-application",
-    "version": "0.1.0",
+    "name": "electron-zeitrechner",
+    "version": "1.0.0",
     "description": "javascript, html and css",
     "main": "app/js/main.js",
     "scripts": {
         "start": "electron .",
-        "package": "electron-packager . Berufsinformation --overwrite --platform=win32 --arch=x64 --out=dist --electron-version=7.1.7 --icon=icon.ico",
+        "package": "electron-packager . Zeitrechner --overwrite --platform=win32 --arch=ia32 --out=dist --electron-version=7.1.7 --icon=box.ico",
         "build": "electron-builder"
     },
     "build": {
@@ -16,10 +16,7 @@
     "keywords": [],
     "author": "David-Kopczynski",
     "license": "GPL-3.0-or-later",
-    "dependencies": {
-        "jquery": "^3.4.1",
-        "node-xlsx": "^0.15.0"
-    },
+    "dependencies": {},
     "devDependencies": {
         "electron": "^7.1.7",
         "electron-builder": "^22.7.0",
