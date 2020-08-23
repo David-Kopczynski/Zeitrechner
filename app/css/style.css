@@ -68,7 +68,7 @@ input[type="text"]:hover {
 
 #headerTitle {
     position: absolute;
-    top: .125cm;
+    top: .2cm;
     left: .2cm;
     pointer-events: none;
     color: grey
@@ -82,8 +82,10 @@ input[type="text"]:hover {
     display: grid;
     grid-template-columns: repeat(2, 1.25cm);
     position: relative;
-    left: calc(100% - 2.5cm);
+    left: calc(100% - 2.75cm);
     -webkit-app-region: no-drag;
+    top: .25cm;
+    height: calc(100% - .25cm);
 }
 
 #window-controls .button {
@@ -92,6 +94,7 @@ input[type="text"]:hover {
     cursor: default;
     text-align: center;
     display: table;
+    border-radius: .05cm;
 }
 
 #window-controls .button:hover {
@@ -107,6 +110,10 @@ input[type="text"]:hover {
     font-size: .35cm !important;
     display: table-cell;
     vertical-align: middle;
+}
+
+#close-button, #min-button {
+    transition: background .25s;
 }
 
 #close-button:hover {

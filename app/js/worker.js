@@ -27,7 +27,10 @@ onLoad = () => {
 
         if (date != "Invalid Date") {
             document.querySelector("#finished").innerText = date;
-            if (additionalTime < 1) document.querySelector("#finishedTIME").innerText = parseInt(additionalTime * 60) + " Minuten";
+            if (additionalTime < 1) {
+                let minutes = parseInt(additionalTime * 60);
+                document.querySelector("#finishedTIME").innerText = minutes + (minutes != 1 ? " Minuten" : " Minute");
+            } 
             else document.querySelector("#finishedTIME").innerText = parseInt(additionalTime) + ":" + parseInt((additionalTime - parseInt(additionalTime)) * 60).toString().padStart(2, "0") + " Stunden";
         }
         else {
@@ -51,12 +54,20 @@ onLoad = () => {
 
 
     // Amount input
+    var previousValue;
+
     document.querySelector("#amount").addEventListener("input", (e) => {
         // ignore if not a number
         if (/[^0-9]/.test(e.data)) e.target.value = e.target.value.replace(/[^0-9]/g, "");
 
         // update slider
-        document.querySelector("#perHour").max = e.target.value;
+        if (document.querySelector("#perHour").value < e.target.value * 2) document.querySelector("#perHour").max = e.target.value * 2;
+        if (!document.querySelector("#numberPerHour").value || document.querySelector("#perHour").value == previousValue) {
+            document.querySelector("#numberPerHour").value = e.target.value;
+            document.querySelector("#perHour").value = e.target.value;
+            document.querySelector("#perHour").max = e.target.value * 2;
+        }
+        previousValue = e.target.value
 
         // update finish
         finishDate();
@@ -78,6 +89,7 @@ onLoad = () => {
         if (/[^0-9]/.test(e.data)) e.target.value = e.target.value.replace(/[^0-9\.]/g, "");
 
         // update slider
+        if (document.querySelector("#perHour").max < e.target.value * 2 || !document.querySelector("#amount").value) document.querySelector("#perHour").max = e.target.value * 2;
         document.querySelector("#perHour").value = e.target.value;
 
         // update finish
@@ -87,6 +99,6 @@ onLoad = () => {
 
     // Update per hour text
     updatePerHourNumber = () => {
-        if (document.querySelector("#amount").value) document.querySelector("#numberPerHour").value = document.querySelector("#perHour").value;
+        document.querySelector("#numberPerHour").value = document.querySelector("#perHour").value;
     } 
 }

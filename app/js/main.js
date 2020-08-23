@@ -22,7 +22,7 @@ app.on("ready", function (event) {
         backgroundColor: "#FFF",
         resizable: false,
         width: 550,
-        height: 278
+        height: 260
     });
 	mainWindow.loadFile(path.join('app/index.html'));
 });
